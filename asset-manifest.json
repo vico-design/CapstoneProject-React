@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/CapstoneProject-React/static/js/main.c8d1d9ea.chunk.js",
+    "main.js.map": "/CapstoneProject-React/static/js/main.c8d1d9ea.chunk.js.map",
+    "runtime-main.js": "/CapstoneProject-React/static/js/runtime-main.d3507261.js",
+    "runtime-main.js.map": "/CapstoneProject-React/static/js/runtime-main.d3507261.js.map",
+    "static/js/2.ef25eefa.chunk.js": "/CapstoneProject-React/static/js/2.ef25eefa.chunk.js",
+    "static/js/2.ef25eefa.chunk.js.map": "/CapstoneProject-React/static/js/2.ef25eefa.chunk.js.map",
+    "index.html": "/CapstoneProject-React/index.html",
+    "static/js/2.ef25eefa.chunk.js.LICENSE.txt": "/CapstoneProject-React/static/js/2.ef25eefa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d3507261.js",
+    "static/js/2.ef25eefa.chunk.js",
+    "static/js/main.c8d1d9ea.chunk.js"
+  ]
+}
