@@ -4,9 +4,11 @@ import { Context } from "../Context";
 
 function Home() {
   const [userInput, setUserInput] = useState("");
+  const [userInputNumber, setUserInputNumber] = useState("");
 
-  const { allPhotos, setQuery } = useContext(Context);
+  const { allPhotos, setConfig } = useContext(Context);
   console.log(userInput);
+
   return (
     <main className="home-container">
       <div>
@@ -14,9 +16,16 @@ function Home() {
           type="text"
           onChange={(e) => setUserInput(e.currentTarget.value)}
         />
+        <input
+          max={50}
+          type="number"
+          onChange={(e) => setUserInputNumber(e.currentTarget.value)}
+        />
         <button
           disabled={!userInput.length}
-          onClick={() => setQuery(userInput)}
+          onClick={() =>
+            setConfig({ query: userInput, per_page: userInputNumber })
+          }
         >
           Search
         </button>

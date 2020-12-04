@@ -7,17 +7,17 @@ const client = createClient(
   "563492ad6f91700001000001068dd1d344c748c18d09a44c6b2b840e"
 );
 const ContextProvider = ({ children }) => {
-  const [query, setQuery] = useState("Nature");
+  const [config, setConfig] = useState({ query: "Nature", per_page: 40 });
 
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [favoritePhotos, setFavoritePhotos] = useState([]);
 
   useEffect(() => {
-    client.photos.search({ query, per_page: 40 }).then((res) => {
+    client.photos.search(config).then((res) => {
       setAllPhotos(res.photos);
     });
-  }, [query]);
+  }, [config]);
 
   function addToCart(newItem) {
     setCartItems((prevItems) => [...prevItems, newItem]);
@@ -50,7 +50,7 @@ const ContextProvider = ({ children }) => {
         favoritePhotos,
         addToFavorite,
         removeFromFav,
-        setQuery,
+        setConfig,
       }}
     >
       {children}
