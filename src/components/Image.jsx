@@ -14,24 +14,6 @@ function Image({ photo, className }) {
     addToFavorite,
     removeFromFav,
   } = useContext(Context);
-  /* OLD VERSION
-  function heartIcon() {
-    if (img.isFavorite) {
-      return (
-        <i
-          className="ri-heart-fill favorite"
-          onClick={() => toggleFavorite(img.id)}
-        ></i>
-      );
-    } else if (hovered) {
-      return (
-        <i
-          className="ri-heart-line favorite"
-          onClick={() => togglefavorite(img.id)}
-        ></i>
-      );
-    }
-  } */
 
   function heartIcon() {
     const alreadyInFav = favoritePhotos.some((item) => item.id === photo.id);

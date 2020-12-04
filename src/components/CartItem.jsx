@@ -17,7 +17,7 @@ function CartItem({ item }) {
         ref={ref}
       ></i>
 
-      <img src={item.url} width="130px" />
+      <img src={item.src.tiny} width="130px" />
       <p>$5.99</p>
     </div>
   );
@@ -25,7 +25,9 @@ function CartItem({ item }) {
 
 CartItem.propTypes = {
   item: PropTypes.shape({
-    url: PropTypes.string.isRequired,
+    src: PropTypes.shape({
+      tiny: PropTypes.string,
+    }).isRequired,
   }),
 };
 

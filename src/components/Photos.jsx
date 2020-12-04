@@ -4,19 +4,19 @@ import Image from "./Image";
 import { getClass } from "../utils";
 
 function Photos({ photos }) {
-  const imageElements =
-    photos &&
-    photos.length &&
-    photos.map((photo, i) => (
-      <Image key={photo.id} photo={photo} className={getClass(i)} />
-    ));
+  const imageElements = photos.map((photo, i) => (
+    <Image key={photo.id} photo={photo} className={getClass(i)} />
+  ));
 
   return (
-    <main className="photos">{photos && photos.length && imageElements}</main>
+    <main className="photos">
+      {!photos.length && <p>No results found</p>}
+      {imageElements}
+    </main>
   );
 }
 
-Photos.PropTypes = {
+Photos.propTypes = {
   photos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,

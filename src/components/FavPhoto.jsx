@@ -18,7 +18,6 @@ function FavPhoto({ photo }) {
       ></i>
 
       <img src={photo.src.tiny} width="130px" />
-      {/* <p>$5.99</p> */}
     </div>
   );
 }
