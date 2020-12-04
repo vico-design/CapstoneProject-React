@@ -17,7 +17,7 @@ function FavPhoto({ photo }) {
         ref={ref}
       ></i>
 
-      <img src={photo.url} width="130px" />
+      <img src={photo.src.tiny} width="130px" />
       {/* <p>$5.99</p> */}
     </div>
   );
@@ -25,7 +25,9 @@ function FavPhoto({ photo }) {
 
 FavPhoto.propTypes = {
   photo: PropTypes.shape({
-    url: PropTypes.string.isRequired,
+    src: PropTypes.shape({
+      tiny: PropTypes.string,
+    }).isRequired,
     id: PropTypes.number.isRequired,
   }),
 };
