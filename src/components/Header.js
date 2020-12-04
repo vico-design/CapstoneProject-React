@@ -10,10 +10,13 @@ function Header() {
   return (
     <header>
       <Link to="/">
-        <h2>Pic SOME</h2>
+        <h2>Pic some</h2>
       </Link>
       <Link to="/cart">
         <i className={`${cartClassName} ri-fw ri-2x`}></i>
+      </Link>
+      <Link to="/favorite">
+        <i className="ri-heart-line fav-page"></i>
       </Link>
     </header>
   );

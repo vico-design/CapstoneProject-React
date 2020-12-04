@@ -7,11 +7,18 @@ import { getClass } from "../utils";
 function Photos() {
   const { allPhotos } = useContext(Context);
 
-  const imageElements = allPhotos.map((img, i) => (
-    <Image key={img.id} img={img} className={getClass(i)} />
-  ));
+  const imageElements =
+    allPhotos &&
+    allPhotos.length &&
+    allPhotos.map((photo, i) => (
+      <Image key={photo.id} photo={photo} className={getClass(i)} />
+    ));
 
-  return <main className="photos">{imageElements}</main>;
+  return (
+    <main className="photos">
+      {allPhotos && allPhotos.length && imageElements}
+    </main>
+  );
 }
 
 export default Photos;

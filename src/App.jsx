@@ -4,8 +4,9 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Cart from "./pages/Cart";
 import Photos from "./pages/Photos";
+import Favorite from "./pages/Favorite";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Header />
@@ -13,13 +14,15 @@ function App() {
         <Route exact path="/">
           <Photos />
         </Route>
-
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/favorite">
+          <Favorite />
         </Route>
       </Switch>
     </div>
   );
-}
+};
 
 export default App;
