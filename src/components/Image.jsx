@@ -10,11 +10,10 @@ function Image({ photo, className }) {
     addToCart,
     cartItems,
     removeFromCart,
-    favoriteItems,
+    favoritePhotos,
     addToFavorite,
     removeFromFav,
   } = useContext(Context);
-  console.log(photo);
   /* OLD VERSION
   function heartIcon() {
     if (img.isFavorite) {
@@ -35,7 +34,7 @@ function Image({ photo, className }) {
   } */
 
   function heartIcon() {
-    const alreadyInFav = favoriteItems.some((item) => item.id === photo.id);
+    const alreadyInFav = favoritePhotos.some((item) => item.id === photo.id);
 
     if (alreadyInFav) {
       return (
