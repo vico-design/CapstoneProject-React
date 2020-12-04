@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Context } from "../Context";
 import useHover from "../hooks/useHover";
 
-function FavItem({ item }) {
+function FavPhoto({ photo }) {
   const [hovered, ref] = useHover();
   const { removeFromFav } = useContext(Context);
 
@@ -13,20 +13,21 @@ function FavItem({ item }) {
     <div className="cart-item">
       <i
         className={iconClassName}
-        onClick={() => removeFromFav(item.id)}
+        onClick={() => removeFromFav(photo.id)}
         ref={ref}
       ></i>
 
-      <img src={item.url} width="130px" />
+      <img src={photo.url} width="130px" />
       {/* <p>$5.99</p> */}
     </div>
   );
 }
 
-/* FavItem.propTypes = {
-  item: PropTypes.shape({
+FavPhoto.propTypes = {
+  photo: PropTypes.shape({
     url: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   }),
-}; */
+};
 
-export default FavItem;
+export default FavPhoto;

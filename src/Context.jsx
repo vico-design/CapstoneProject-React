@@ -9,7 +9,7 @@ const client = createClient(
 const ContextProvider = ({ children }) => {
   const [allPhotos, setAllPhotos] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [favoriteItems, setFavoriteItems] = useState([]);
+  const [favoritePhotos, setFavoritePhotos] = useState([]);
 
   const query = "Nature";
 
@@ -51,23 +51,24 @@ const ContextProvider = ({ children }) => {
   function emptyCart() {
     setCartItems([]);
   }
-  function addToFavorite(newItem) {
-    setFavoriteItems((prevItems) => [...prevItems, newItem]);
+  function addToFavorite(newPhoto) {
+    setFavoritePhotos((prevPhotos) => [...prevPhotos, newPhoto]);
   }
 
   function removeFromFav(id) {
-    setFavoriteItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setFavoritePhotos((prevPhotos) =>
+      prevPhotos.filter((photo) => photo.id !== id)
+    );
   }
   return (
     <Context.Provider
       value={{
         allPhotos,
-
         cartItems,
         addToCart,
         removeFromCart,
         emptyCart,
-        favoriteItems,
+        favoritePhotos,
         addToFavorite,
         removeFromFav,
       }}
