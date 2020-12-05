@@ -18,7 +18,10 @@ function Home() {
           onChange={(e) => setUserInput(e.currentTarget.value)}
         />
         <input
+<<<<<<< HEAD
           placeholder="Write a number"
+=======
+>>>>>>> 135947b6c78769dd8da37971c1f5512fb0592343
           max={50}
           type="number"
           onChange={(e) => setUserInputNumber(e.currentTarget.value)}
