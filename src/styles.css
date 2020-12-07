@@ -16,7 +16,6 @@ input {
   padding: 10px;
   margin: 10px;
   border: 2px solid #eee;
-
   box-shadow: inset 1px 1px 20px 1px #f47b6e;
 }
 button {
@@ -28,7 +27,7 @@ button {
   border: none;
   transition: all 0.4s ease 0s;
 }
-button:hover {
+.button-hover:hover {
   background: #f47b6e87;
   border: none;
   letter-spacing: 2px;
@@ -172,4 +171,21 @@ a:hover {
 }
 a:active {
   color: var(--light-blue);
+}
+
+.pagination-container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.pagination-container button {
+  margin: 0 3px;
+}
+
+.current-page {
+  background-color: #2e4d81;
 }
