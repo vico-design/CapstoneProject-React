@@ -4,44 +4,51 @@ import PropTypes from "prop-types";
 import { Context } from "../Context";
 import useHover from "../hooks/useHover";
 
-function Image({ className, img }) {
+function Image({ photo, className }) {
   const [hovered, ref] = useHover();
-  const { toggleFavorite, addToCart, cartItems, removeFromCart } = useContext(
-    Context
-  );
+  const {
+    addToCart,
+    cartItems,
+    removeFromCart,
+    favoritePhotos,
+    addToFavorite,
+    removeFromFav,
+  } = useContext(Context);
 
   function heartIcon() {
-    if (img.isFavorite) {
+    const alreadyInFav = favoritePhotos.some((item) => item.id === photo.id);
+
+    if (alreadyInFav) {
       return (
         <i
           className="ri-heart-fill favorite"
-          onClick={() => toggleFavorite(img.id)}
+          onClick={() => removeFromFav(photo.id)}
         ></i>
       );
     } else if (hovered) {
       return (
         <i
           className="ri-heart-line favorite"
-          onClick={() => toggleFavorite(img.id)}
+          onClick={() => addToFavorite(photo)}
         ></i>
       );
     }
   }
 
   function cartIcon() {
-    const alreadyInCart = cartItems.some((item) => item.id === img.id);
+    const alreadyInCart = cartItems.some((item) => item.id === photo.id);
     if (alreadyInCart) {
       return (
         <i
           className="ri-shopping-cart-fill cart"
-          onClick={() => removeFromCart(img.id)}
+          onClick={() => removeFromCart(photo.id)}
         ></i>
       );
     } else if (hovered) {
       return (
         <i
           className="ri-add-circle-line cart"
-          onClick={() => addToCart(img)}
+          onClick={() => addToCart(photo)}
         ></i>
       );
     }
@@ -49,7 +56,7 @@ function Image({ className, img }) {
 
   return (
     <div className={`${className} image-container`} ref={ref}>
-      <img src={img.url} className="image-grid" />
+      <img src={photo.src.tiny} className="image-grid" />
       {heartIcon()}
       {cartIcon()}
     </div>
@@ -58,10 +65,11 @@ function Image({ className, img }) {
 
 Image.propTypes = {
   className: PropTypes.string,
-  img: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    isFavorite: PropTypes.bool,
+  photo: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    src: PropTypes.shape({
+      tiny: PropTypes.string,
+    }).isRequired,
   }),
 };
 
