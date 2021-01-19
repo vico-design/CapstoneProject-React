@@ -16,7 +16,7 @@ function Home() {
   }
   return (
     <main className="home-container">
-      <div>
+      <div className="input-container">
         <input
           placeholder="Write a theme"
           type="text"
