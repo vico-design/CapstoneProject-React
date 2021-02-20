@@ -7,7 +7,7 @@ import App from "./App";
 
 ReactDOM.render(
   <ContextProvider>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <App />
     </Router>
   </ContextProvider>,
